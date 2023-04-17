@@ -8,8 +8,8 @@ import MuiBreadcrumbs from '@mui/material/Breadcrumbs';
 import { useTheme } from '@mui/material/styles';
 
 // project imports
+import { gridSpacing } from 'atoms/constants';
 import config from 'config';
-import { gridSpacing } from 'store/constant';
 
 // assets
 import AccountTreeTwoToneIcon from '@mui/icons-material/AccountTreeTwoTone';

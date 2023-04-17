@@ -21,9 +21,9 @@ import { IconSettings } from '@tabler/icons';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
 // project imports
+import { gridSpacing } from 'atoms/constants';
 import { customizationState } from 'atoms/customizationState';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { gridSpacing } from 'store/constant';
 import SubCard from 'ui-component/cards/SubCard';
 import AnimateButton from 'ui-component/extended/AnimateButton';
 

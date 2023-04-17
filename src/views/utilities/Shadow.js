@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import { Box, Card, Grid } from '@mui/material';
 
 // project imports
-import SubCard from 'ui-component/cards/SubCard';
-import MainCard from 'ui-component/cards/MainCard';
+import { gridSpacing } from 'atoms/constants';
 import SecondaryAction from 'ui-component/cards/CardSecondaryAction';
-import { gridSpacing } from 'store/constant';
+import MainCard from 'ui-component/cards/MainCard';
+import SubCard from 'ui-component/cards/SubCard';
 
 // ===============================|| SHADOW BOX ||=============================== //
 

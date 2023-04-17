@@ -10,7 +10,7 @@ import ApexCharts from 'apexcharts';
 import Chart from 'react-apexcharts';
 
 // project imports
-import { gridSpacing } from 'store/constant';
+import { gridSpacing } from 'atoms/constants';
 import MainCard from 'ui-component/cards/MainCard';
 import SkeletonTotalGrowthBarChart from 'ui-component/cards/Skeleton/TotalGrowthBarChart';
 

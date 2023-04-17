@@ -5,8 +5,8 @@ import { AppBar, Box, CssBaseline, Toolbar, useMediaQuery } from '@mui/material'
 import { styled, useTheme } from '@mui/material/styles';
 
 // project imports
+import { drawerWidth } from 'atoms/constants';
 import navigation from 'menu-items';
-import { drawerWidth } from 'store/constant';
 import Breadcrumbs from 'ui-component/extended/Breadcrumbs';
 import Customization from '../Customization';
 import Header from './Header';
