@@ -48,7 +48,10 @@ const Breadcrumbs = ({ card, divider, icon, icons, maxItems, navigation, rightAl
                 if (collapse.type && collapse.type === 'collapse') {
                     getCollapse(collapse);
                 } else if (collapse.type && collapse.type === 'item') {
-                    if (document.location.pathname === config.basename + collapse.url) {
+                    // if (document.location.pathname === config.basename + collapse.url) {
+                    // console.log(document.location.pathname);
+                    console.log(collapse.url, config.basename, document.location.pathname);
+                    if (document.location.pathname === collapse.url) {
                         setMain(menu);
                         setItem(collapse);
                     }

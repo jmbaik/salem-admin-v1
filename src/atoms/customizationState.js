@@ -1,6 +1,6 @@
 import config from 'config';
 
-const { atom, selector } = require('recoil');
+const { atom } = require('recoil');
 
 export const customizationState = atom({
     key: 'customizationState',
