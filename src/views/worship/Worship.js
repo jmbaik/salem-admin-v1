@@ -1,55 +1,55 @@
-import {
-    Button,
-    Card,
-    CardActions,
-    CardContent,
-    CardMedia,
-    Dialog,
-    DialogActions,
-    DialogContent,
-    DialogTitle,
-    Typography,
-} from '@mui/material';
-import {useState} from 'react';
-
+import { Box, Button, ButtonGroup } from '@mui/material';
+import { Container } from '@mui/system';
+import { areaCodeApi } from 'api/commonCodeApi';
+import { MDataGrid } from 'ui-component/datagrid/MDataGrid';
 const Worship = () => {
-    const [open, setOpen] = useState(false);
+    const deleteRow = (param) => {
+        console.log(param);
+    };
+    const handleRowClick = (params) => {
+        console.log(params);
+        // console.log(params.row['code']);
+        // console.log(params.row['name']);
+    };
+    const columns = [
+        { field: 'code', headerName: 'CODE', width: 90, headerAlign: 'center' },
+        {
+            field: 'name',
+            headerName: 'Name',
+            headerAlign: 'center',
+            width: 150,
+            editable: false,
+        },
+        {
+            field: 'aliasCode',
+            headerName: 'Last name',
+            headerAlign: 'center',
+            width: 150,
+            editable: false,
+        },
+    ];
     return (
-        <>
-            <Card sx={{maxWidth: 500}}>
-                <CardMedia
-                    sx={{height: 140}}
-                    image="https://images.unsplash.com/photo-1681282894814-fc9281ef8c35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1587&q=80"
-                    title="green iguana"
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        Lizard
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except
-                        Antarctica
-                    </Typography>
-                </CardContent>
-                <CardActions>
-                    <Button size="small" onClick={() => setOpen(true)}>
-                        Share
-                    </Button>
-                    <Button size="small">Learn More</Button>
-                </CardActions>
-            </Card>
-            <Dialog open={open} onClose={() => setOpen(false)}>
-                <DialogTitle> This is my Dialog</DialogTitle>
-                <DialogContent>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, facilis vitae iure error nobis autem
-                    perferendis molestias natus dolorem sint
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={() => setOpen(false)}>Cancel</Button>
-                    <Button>Agree</Button>
-                </DialogActions>
-            </Dialog>
-        </>
+        <Container>
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end', margin: 3 }}>
+                <ButtonGroup size="medium" aria-label="medium button group">
+                    <Button>추가</Button>
+                    <Button>수정</Button>
+                </ButtonGroup>
+            </Box>
+            <MDataGrid
+                queryKey={'area-code'}
+                keyCode={'code'}
+                width={800}
+                height={500}
+                cols={columns}
+                apiFunction={areaCodeApi}
+                isCheck={false}
+                autoHeight={false}
+                onRowClick={handleRowClick}
+                actionDelete={deleteRow}
+                isDelete={true}
+            />
+        </Container>
     );
 };
 
