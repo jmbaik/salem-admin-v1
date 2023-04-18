@@ -9,7 +9,6 @@ import { useTheme } from '@mui/material/styles';
 
 // project imports
 import { gridSpacing } from 'atoms/constants';
-import config from 'config';
 
 // assets
 import AccountTreeTwoToneIcon from '@mui/icons-material/AccountTreeTwoTone';
@@ -48,9 +47,6 @@ const Breadcrumbs = ({ card, divider, icon, icons, maxItems, navigation, rightAl
                 if (collapse.type && collapse.type === 'collapse') {
                     getCollapse(collapse);
                 } else if (collapse.type && collapse.type === 'item') {
-                    // if (document.location.pathname === config.basename + collapse.url) {
-                    // console.log(document.location.pathname);
-                    console.log(collapse.url, config.basename, document.location.pathname);
                     if (document.location.pathname === collapse.url) {
                         setMain(menu);
                         setItem(collapse);

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useState} from 'react';
 
 // material-ui
 import {
@@ -16,12 +16,12 @@ import {
     OutlinedInput,
     Stack,
     Typography,
-    useMediaQuery
+    useMediaQuery,
 } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
+import {useTheme} from '@mui/material/styles';
 
 // third party
-import { Formik } from 'formik';
+import {Formik} from 'formik';
 import * as Yup from 'yup';
 
 // project imports
@@ -33,12 +33,12 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 import Google from 'assets/images/icons/social-google.svg';
-import { customizationState } from 'atoms/customizationState';
-import { useRecoilValue } from 'recoil';
+import {customizationState} from 'atoms/customizationState';
+import {useRecoilValue} from 'recoil';
 
 // ============================|| FIREBASE - LOGIN ||============================ //
 
-const FirebaseLogin = ({ ...others }) => {
+const FirebaseLogin = ({...others}) => {
     const theme = useTheme();
     const scriptedRef = useScriptRef();
     const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
@@ -72,11 +72,11 @@ const FirebaseLogin = ({ ...others }) => {
                             sx={{
                                 color: 'grey.700',
                                 backgroundColor: theme.palette.grey[50],
-                                borderColor: theme.palette.grey[100]
+                                borderColor: theme.palette.grey[100],
                             }}
                         >
-                            <Box sx={{ mr: { xs: 1, sm: 2, width: 20 } }}>
-                                <img src={Google} alt="google" width={16} height={16} style={{ marginRight: matchDownSM ? 8 : 16 }} />
+                            <Box sx={{mr: {xs: 1, sm: 2, width: 20}}}>
+                                <img src={Google} alt="google" width={16} height={16} style={{marginRight: matchDownSM ? 8 : 16}} />
                             </Box>
                             Sign in with Google
                         </Button>
@@ -86,10 +86,10 @@ const FirebaseLogin = ({ ...others }) => {
                     <Box
                         sx={{
                             alignItems: 'center',
-                            display: 'flex'
+                            display: 'flex',
                         }}
                     >
-                        <Divider sx={{ flexGrow: 1 }} orientation="horizontal" />
+                        <Divider sx={{flexGrow: 1}} orientation="horizontal" />
 
                         <Button
                             variant="outlined"
@@ -101,7 +101,7 @@ const FirebaseLogin = ({ ...others }) => {
                                 borderColor: `${theme.palette.grey[100]} !important`,
                                 color: `${theme.palette.grey[900]}!important`,
                                 fontWeight: 500,
-                                borderRadius: `${customization.borderRadius}px`
+                                borderRadius: `${customization.borderRadius}px`,
                             }}
                             disableRipple
                             disabled
@@ -109,11 +109,11 @@ const FirebaseLogin = ({ ...others }) => {
                             OR
                         </Button>
 
-                        <Divider sx={{ flexGrow: 1 }} orientation="horizontal" />
+                        <Divider sx={{flexGrow: 1}} orientation="horizontal" />
                     </Box>
                 </Grid>
                 <Grid item xs={12} container alignItems="center" justifyContent="center">
-                    <Box sx={{ mb: 2 }}>
+                    <Box sx={{mb: 2}}>
                         <Typography variant="subtitle1">Sign in with Email address</Typography>
                     </Box>
                 </Grid>
@@ -123,31 +123,31 @@ const FirebaseLogin = ({ ...others }) => {
                 initialValues={{
                     email: 'info@codedthemes.com',
                     password: '123456',
-                    submit: null
+                    submit: null,
                 }}
                 validationSchema={Yup.object().shape({
                     email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
-                    password: Yup.string().max(255).required('Password is required')
+                    password: Yup.string().max(255).required('Password is required'),
                 })}
-                onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
+                onSubmit={async (values, {setErrors, setStatus, setSubmitting}) => {
                     try {
                         if (scriptedRef.current) {
-                            setStatus({ success: true });
+                            setStatus({success: true});
                             setSubmitting(false);
                         }
                     } catch (err) {
                         console.error(err);
                         if (scriptedRef.current) {
-                            setStatus({ success: false });
-                            setErrors({ submit: err.message });
+                            setStatus({success: false});
+                            setErrors({submit: err.message});
                             setSubmitting(false);
                         }
                     }
                 }}
             >
-                {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
+                {({errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values}) => (
                     <form noValidate onSubmit={handleSubmit} {...others}>
-                        <FormControl fullWidth error={Boolean(touched.email && errors.email)} sx={{ ...theme.typography.customInput }}>
+                        <FormControl fullWidth error={Boolean(touched.email && errors.email)} sx={{...theme.typography.customInput}}>
                             <InputLabel htmlFor="outlined-adornment-email-login">Email Address / Username</InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-email-login"
@@ -166,11 +166,7 @@ const FirebaseLogin = ({ ...others }) => {
                             )}
                         </FormControl>
 
-                        <FormControl
-                            fullWidth
-                            error={Boolean(touched.password && errors.password)}
-                            sx={{ ...theme.typography.customInput }}
-                        >
+                        <FormControl fullWidth error={Boolean(touched.password && errors.password)} sx={{...theme.typography.customInput}}>
                             <InputLabel htmlFor="outlined-adornment-password-login">Password</InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-password-login"
@@ -213,17 +209,17 @@ const FirebaseLogin = ({ ...others }) => {
                                 }
                                 label="Remember me"
                             />
-                            <Typography variant="subtitle1" color="secondary" sx={{ textDecoration: 'none', cursor: 'pointer' }}>
+                            <Typography variant="subtitle1" color="secondary" sx={{textDecoration: 'none', cursor: 'pointer'}}>
                                 Forgot Password?
                             </Typography>
                         </Stack>
                         {errors.submit && (
-                            <Box sx={{ mt: 3 }}>
+                            <Box sx={{mt: 3}}>
                                 <FormHelperText error>{errors.submit}</FormHelperText>
                             </Box>
                         )}
 
-                        <Box sx={{ mt: 2 }}>
+                        <Box sx={{mt: 2}}>
                             <AnimateButton>
                                 <Button
                                     disableElevation
