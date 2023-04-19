@@ -23,6 +23,7 @@ export function MDataGrid({
     onRowClick,
     actionDelete,
     isDelete,
+    hideCols,
 }) {
     const { data, isLoading, isError, error } = useQuery({
         queryKey: [queryKey],
@@ -73,6 +74,11 @@ export function MDataGrid({
             ) : (
                 <DataGrid
                     getRowId={(row) => row[keyCode]}
+                    initialState={{
+                        columns: {
+                            columnVisibilityModel: hideCols,
+                        },
+                    }}
                     columns={columns}
                     rows={data}
                     density="compact"
@@ -80,7 +86,7 @@ export function MDataGrid({
                     paginationModel={paginationModel}
                     onPaginationModelChange={setPaginationModel}
                     checkboxSelection={isCheck}
-                    rowHeight={35}
+                    rowHeight={42}
                     sx={{
                         boxShadow: 3,
                         borderStyle: 'solid',
