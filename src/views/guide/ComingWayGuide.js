@@ -1,3 +1,4 @@
+import useAwsUpload from 'hooks/useAwsUpload';
 import {useEffect, useState} from 'react';
 import {useDropzone} from 'react-dropzone';
 
@@ -50,11 +51,17 @@ const img = {
 
 export function ComingWayGuide(props) {
     const [files, setFiles] = useState([]);
+    const {fileNames, uploadFiles} = useAwsUpload({
+        files: files,
+        dir: 'video/worship',
+        keyCode: 'zzz',
+    });
     const {getRootProps, getInputProps} = useDropzone({
         accept: {
             'image/*': [],
         },
         onDrop: (acceptedFiles) => {
+            uploadFiles(acceptedFiles);
             setFiles(
                 acceptedFiles.map((file) =>
                     Object.assign(file, {
@@ -62,6 +69,8 @@ export function ComingWayGuide(props) {
                     }),
                 ),
             );
+
+            console.log(fileNames);
         },
     });
 

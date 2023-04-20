@@ -40,7 +40,7 @@ const NewFamilyGuide = () => {
             ACL: 'public-read',
             Body: file,
             Bucket: S3_BUCKET,
-            Key: 'upload/' + 'aaaaaa.' + ext,
+            Key: 'upload/' + 'ccc.' + ext,
         };
         myBucket
             .putObject(params)
