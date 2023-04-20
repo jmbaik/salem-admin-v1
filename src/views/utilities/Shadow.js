@@ -1,18 +1,18 @@
 import PropTypes from 'prop-types';
 
 // material-ui
-import { Box, Card, Grid } from '@mui/material';
+import {Box, Card, Grid} from '@mui/material';
 
 // project imports
-import { gridSpacing } from 'atoms/constants';
+import {gridSpacing} from 'atoms/constants';
 import SecondaryAction from 'ui-component/cards/CardSecondaryAction';
 import MainCard from 'ui-component/cards/MainCard';
 import SubCard from 'ui-component/cards/SubCard';
 
 // ===============================|| SHADOW BOX ||=============================== //
 
-const ShadowBox = ({ shadow }) => (
-    <Card sx={{ mb: 3, boxShadow: shadow }}>
+const ShadowBox = ({shadow}) => (
+    <Card sx={{mb: 3, boxShadow: shadow}}>
         <Box
             sx={{
                 display: 'flex',
@@ -20,16 +20,16 @@ const ShadowBox = ({ shadow }) => (
                 alignItems: 'center',
                 py: 4.5,
                 bgcolor: 'primary.light',
-                color: 'grey.800'
+                color: 'grey.800',
             }}
         >
-            <Box sx={{ color: 'inherit' }}>boxShadow: {shadow}</Box>
+            <Box sx={{color: 'inherit'}}>boxShadow: {shadow}</Box>
         </Box>
     </Card>
 );
 
 ShadowBox.propTypes = {
-    shadow: PropTypes.string.isRequired
+    shadow: PropTypes.string.isRequired,
 };
 
 // ============================|| UTILITIES SHADOW ||============================ //

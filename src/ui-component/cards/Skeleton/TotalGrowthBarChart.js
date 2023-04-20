@@ -1,9 +1,9 @@
 // material-ui
-import { Card, CardContent, Grid } from '@mui/material';
+import {Card, CardContent, Grid} from '@mui/material';
 import Skeleton from '@mui/material/Skeleton';
 
 // project imports
-import { gridSpacing } from 'atoms/constants';
+import {gridSpacing} from 'atoms/constants';
 
 // ==============================|| SKELETON TOTAL GROWTH BAR CHART ||============================== //
 

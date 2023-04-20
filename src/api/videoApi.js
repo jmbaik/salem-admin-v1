@@ -9,3 +9,13 @@ export const videoApi = async () => {
     });
     return response.data.result;
 };
+
+export const videoUploadApi = async (data) => {
+    const config = {
+        header: {
+            'content-type': 'multipart/form-data',
+        },
+    };
+    const result = await axios.post('/video/default', data, config);
+    return result;
+};

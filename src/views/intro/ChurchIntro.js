@@ -1,5 +1,5 @@
-import { Box, Collapse, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
-import { useState } from 'react';
+import {Box, Collapse, List, ListItem, ListItemButton, ListItemIcon, ListItemText} from '@mui/material';
+import {useState} from 'react';
 
 const ChurchIntro = () => {
     const items = ['first', 'second', 'third', 'forth', 'fifth'];
@@ -14,7 +14,7 @@ const ChurchIntro = () => {
                 </ListItem>
             </List>
             <Collapse in={open}>
-                <List sx={{ marginLeft: 25 }}>
+                <List sx={{marginLeft: 25}}>
                     {items.map((item, index) => {
                         return (
                             <ListItem key={index} divider>

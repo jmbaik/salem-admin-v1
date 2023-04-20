@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 
 // material-ui
-import { Grid } from '@mui/material';
+import {Grid} from '@mui/material';
 
 // project imports
-import { gridSpacing } from 'atoms/constants';
+import {gridSpacing} from 'atoms/constants';
 import EarningCard from './EarningCard';
 import PopularCard from './PopularCard';
 import TotalGrowthBarChart from './TotalGrowthBarChart';

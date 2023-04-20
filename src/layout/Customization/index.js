@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 
 // material-ui
 import {
@@ -12,18 +12,18 @@ import {
     RadioGroup,
     Slider,
     Tooltip,
-    Typography
+    Typography,
 } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-import { IconSettings } from '@tabler/icons';
+import {useTheme} from '@mui/material/styles';
+import {IconSettings} from '@tabler/icons';
 
 // third-party
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
 // project imports
-import { gridSpacing } from 'atoms/constants';
-import { customizationState } from 'atoms/customizationState';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import {gridSpacing} from 'atoms/constants';
+import {customizationState} from 'atoms/customizationState';
+import {useRecoilState, useRecoilValue} from 'recoil';
 import SubCard from 'ui-component/cards/SubCard';
 import AnimateButton from 'ui-component/extended/AnimateButton';
 
@@ -52,7 +52,7 @@ const Customization = () => {
     };
 
     useEffect(() => {
-        setCustom({ ...custom, borderRadius: borderRadius });
+        setCustom({...custom, borderRadius: borderRadius});
     }, [setCustom, borderRadius]);
 
     let initialFont;
@@ -85,7 +85,7 @@ const Customization = () => {
                 newFont = `'Roboto', sans-serif`;
                 break;
         }
-        setCustom({ ...custom, fontFamily: newFont });
+        setCustom({...custom, fontFamily: newFont});
     }, [setCustom, fontFamily]);
 
     return (
@@ -107,7 +107,7 @@ const Customization = () => {
                         top: '25%',
                         position: 'fixed',
                         right: 10,
-                        zIndex: theme.zIndex.speedDial
+                        zIndex: theme.zIndex.speedDial,
                     }}
                 >
                     <AnimateButton type="rotate">
@@ -124,12 +124,12 @@ const Customization = () => {
                 open={open}
                 PaperProps={{
                     sx: {
-                        width: 280
-                    }
+                        width: 280,
+                    },
                 }}
             >
                 <PerfectScrollbar component="div">
-                    <Grid container spacing={gridSpacing} sx={{ p: 3 }}>
+                    <Grid container spacing={gridSpacing} sx={{p: 3}}>
                         <Grid item xs={12}>
                             {/* font family */}
                             <SubCard title="Font Family">
@@ -145,8 +145,8 @@ const Customization = () => {
                                             control={<Radio />}
                                             label="Roboto"
                                             sx={{
-                                                '& .MuiSvgIcon-root': { fontSize: 28 },
-                                                '& .MuiFormControlLabel-label': { color: theme.palette.grey[900] }
+                                                '& .MuiSvgIcon-root': {fontSize: 28},
+                                                '& .MuiFormControlLabel-label': {color: theme.palette.grey[900]},
                                             }}
                                         />
                                         <FormControlLabel
@@ -154,8 +154,8 @@ const Customization = () => {
                                             control={<Radio />}
                                             label="Poppins"
                                             sx={{
-                                                '& .MuiSvgIcon-root': { fontSize: 28 },
-                                                '& .MuiFormControlLabel-label': { color: theme.palette.grey[900] }
+                                                '& .MuiSvgIcon-root': {fontSize: 28},
+                                                '& .MuiFormControlLabel-label': {color: theme.palette.grey[900]},
                                             }}
                                         />
                                         <FormControlLabel
@@ -163,8 +163,8 @@ const Customization = () => {
                                             control={<Radio />}
                                             label="Inter"
                                             sx={{
-                                                '& .MuiSvgIcon-root': { fontSize: 28 },
-                                                '& .MuiFormControlLabel-label': { color: theme.palette.grey[900] }
+                                                '& .MuiSvgIcon-root': {fontSize: 28},
+                                                '& .MuiFormControlLabel-label': {color: theme.palette.grey[900]},
                                             }}
                                         />
                                     </RadioGroup>
@@ -174,7 +174,7 @@ const Customization = () => {
                         <Grid item xs={12}>
                             {/* border radius */}
                             <SubCard title="Border Radius">
-                                <Grid item xs={12} container spacing={2} alignItems="center" sx={{ mt: 2.5 }}>
+                                <Grid item xs={12} container spacing={2} alignItems="center" sx={{mt: 2.5}}>
                                     <Grid item>
                                         <Typography variant="h6" color="secondary">
                                             4px
@@ -195,8 +195,8 @@ const Customization = () => {
                                             color="secondary"
                                             sx={{
                                                 '& .MuiSlider-valueLabel': {
-                                                    color: 'secondary.light'
-                                                }
+                                                    color: 'secondary.light',
+                                                },
                                             }}
                                         />
                                     </Grid>

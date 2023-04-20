@@ -1,32 +1,44 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
 
 // material-ui
-import { Box, Card, Divider, Grid, Typography } from '@mui/material';
+import {Box, Card, Divider, Grid, Typography} from '@mui/material';
 import MuiBreadcrumbs from '@mui/material/Breadcrumbs';
-import { useTheme } from '@mui/material/styles';
+import {useTheme} from '@mui/material/styles';
 
 // project imports
-import { gridSpacing } from 'atoms/constants';
+import {gridSpacing} from 'atoms/constants';
 
 // assets
 import AccountTreeTwoToneIcon from '@mui/icons-material/AccountTreeTwoTone';
 import HomeIcon from '@mui/icons-material/Home';
 import HomeTwoToneIcon from '@mui/icons-material/HomeTwoTone';
-import { IconTallymark1 } from '@tabler/icons';
+import {IconTallymark1} from '@tabler/icons';
 
 const linkSX = {
     display: 'flex',
     color: 'grey.900',
     textDecoration: 'none',
     alignContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
 };
 
 // ==============================|| BREADCRUMBS ||============================== //
 
-const Breadcrumbs = ({ card, divider, icon, icons, maxItems, navigation, rightAlign, separator, title, titleBottom, ...others }) => {
+const Breadcrumbs = ({
+    card,
+    divider,
+    icon,
+    icons,
+    maxItems,
+    navigation,
+    rightAlign,
+    separator,
+    title,
+    titleBottom,
+    ...others
+}) => {
     const theme = useTheme();
 
     const iconStyle = {
@@ -34,7 +46,7 @@ const Breadcrumbs = ({ card, divider, icon, icons, maxItems, navigation, rightAl
         marginTop: `-${theme.spacing(0.25)}`,
         width: '1rem',
         height: '1rem',
-        color: theme.palette.secondary.main
+        color: theme.palette.secondary.main,
     };
 
     const [main, setMain] = useState();
@@ -68,7 +80,11 @@ const Breadcrumbs = ({ card, divider, icon, icons, maxItems, navigation, rightAl
 
     // item separator
     const SeparatorIcon = separator;
-    const separatorIcon = separator ? <SeparatorIcon stroke={1.5} size="1rem" /> : <IconTallymark1 stroke={1.5} size="1rem" />;
+    const separatorIcon = separator ? (
+        <SeparatorIcon stroke={1.5} size="1rem" />
+    ) : (
+        <IconTallymark1 stroke={1.5} size="1rem" />
+    );
 
     let mainContent;
     let itemContent;
@@ -101,7 +117,7 @@ const Breadcrumbs = ({ card, divider, icon, icons, maxItems, navigation, rightAl
                     textDecoration: 'none',
                     alignContent: 'center',
                     alignItems: 'center',
-                    color: 'grey.500'
+                    color: 'grey.500',
                 }}
             >
                 {icons && <ItemIcon style={iconStyle} />}
@@ -117,11 +133,11 @@ const Breadcrumbs = ({ card, divider, icon, icons, maxItems, navigation, rightAl
                         marginBottom: card === false ? 0 : theme.spacing(gridSpacing),
                         border: card === false ? 'none' : '1px solid',
                         borderColor: theme.palette.primary[200] + 75,
-                        background: card === false ? 'transparent' : theme.palette.background.default
+                        background: card === false ? 'transparent' : theme.palette.background.default,
                     }}
                     {...others}
                 >
-                    <Box sx={{ p: 2, pl: card === false ? 0 : 2 }}>
+                    <Box sx={{p: 2, pl: card === false ? 0 : 2}}>
                         <Grid
                             container
                             direction={rightAlign ? 'row' : 'column'}
@@ -131,21 +147,21 @@ const Breadcrumbs = ({ card, divider, icon, icons, maxItems, navigation, rightAl
                         >
                             {title && !titleBottom && (
                                 <Grid item>
-                                    <Typography variant="h3" sx={{ fontWeight: 500 }}>
+                                    <Typography variant="h3" sx={{fontWeight: 500}}>
                                         {item.title}
                                     </Typography>
                                 </Grid>
                             )}
                             <Grid item>
                                 <MuiBreadcrumbs
-                                    sx={{ '& .MuiBreadcrumbs-separator': { width: 16, ml: 1.25, mr: 1.25 } }}
+                                    sx={{'& .MuiBreadcrumbs-separator': {width: 16, ml: 1.25, mr: 1.25}}}
                                     aria-label="breadcrumb"
                                     maxItems={maxItems || 8}
                                     separator={separatorIcon}
                                 >
                                     <Typography component={Link} to="/" color="inherit" variant="subtitle1" sx={linkSX}>
                                         {icons && <HomeTwoToneIcon sx={iconStyle} />}
-                                        {icon && <HomeIcon sx={{ ...iconStyle, mr: 0 }} />}
+                                        {icon && <HomeIcon sx={{...iconStyle, mr: 0}} />}
                                         {!icon && 'Dashboard'}
                                     </Typography>
                                     {mainContent}
@@ -154,14 +170,16 @@ const Breadcrumbs = ({ card, divider, icon, icons, maxItems, navigation, rightAl
                             </Grid>
                             {title && titleBottom && (
                                 <Grid item>
-                                    <Typography variant="h3" sx={{ fontWeight: 500 }}>
+                                    <Typography variant="h3" sx={{fontWeight: 500}}>
                                         {item.title}
                                     </Typography>
                                 </Grid>
                             )}
                         </Grid>
                     </Box>
-                    {card === false && divider !== false && <Divider sx={{ borderColor: theme.palette.primary.main, mb: gridSpacing }} />}
+                    {card === false && divider !== false && (
+                        <Divider sx={{borderColor: theme.palette.primary.main, mb: gridSpacing}} />
+                    )}
                 </Card>
             );
         }
@@ -180,7 +198,7 @@ Breadcrumbs.propTypes = {
     rightAlign: PropTypes.bool,
     separator: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     title: PropTypes.bool,
-    titleBottom: PropTypes.bool
+    titleBottom: PropTypes.bool,
 };
 
 export default Breadcrumbs;

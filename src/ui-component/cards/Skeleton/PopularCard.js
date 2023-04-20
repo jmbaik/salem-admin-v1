@@ -1,9 +1,9 @@
 // material-ui
-import { Card, CardContent, Grid } from '@mui/material';
+import {Card, CardContent, Grid} from '@mui/material';
 import Skeleton from '@mui/material/Skeleton';
 
 // project imports
-import { gridSpacing } from 'atoms/constants';
+import {gridSpacing} from 'atoms/constants';
 
 // ==============================|| SKELETON - POPULAR CARD ||============================== //
 
@@ -32,7 +32,12 @@ const PopularCard = () => (
                                     <Skeleton variant="rectangular" height={20} />
                                 </Grid>
                                 <Grid item xs={6}>
-                                    <Grid container alignItems="center" spacing={gridSpacing} justifyContent="space-between">
+                                    <Grid
+                                        container
+                                        alignItems="center"
+                                        spacing={gridSpacing}
+                                        justifyContent="space-between"
+                                    >
                                         <Grid item xs zeroMinWidth>
                                             <Skeleton variant="rectangular" height={20} />
                                         </Grid>
@@ -56,7 +61,12 @@ const PopularCard = () => (
                                     <Skeleton variant="rectangular" height={20} />
                                 </Grid>
                                 <Grid item xs={6}>
-                                    <Grid container alignItems="center" spacing={gridSpacing} justifyContent="space-between">
+                                    <Grid
+                                        container
+                                        alignItems="center"
+                                        spacing={gridSpacing}
+                                        justifyContent="space-between"
+                                    >
                                         <Grid item xs zeroMinWidth>
                                             <Skeleton variant="rectangular" height={20} />
                                         </Grid>
@@ -80,7 +90,12 @@ const PopularCard = () => (
                                     <Skeleton variant="rectangular" height={20} />
                                 </Grid>
                                 <Grid item xs={6}>
-                                    <Grid container alignItems="center" spacing={gridSpacing} justifyContent="space-between">
+                                    <Grid
+                                        container
+                                        alignItems="center"
+                                        spacing={gridSpacing}
+                                        justifyContent="space-between"
+                                    >
                                         <Grid item xs zeroMinWidth>
                                             <Skeleton variant="rectangular" height={20} />
                                         </Grid>
@@ -104,7 +119,12 @@ const PopularCard = () => (
                                     <Skeleton variant="rectangular" height={20} />
                                 </Grid>
                                 <Grid item xs={6}>
-                                    <Grid container alignItems="center" spacing={gridSpacing} justifyContent="space-between">
+                                    <Grid
+                                        container
+                                        alignItems="center"
+                                        spacing={gridSpacing}
+                                        justifyContent="space-between"
+                                    >
                                         <Grid item xs zeroMinWidth>
                                             <Skeleton variant="rectangular" height={20} />
                                         </Grid>
@@ -128,7 +148,12 @@ const PopularCard = () => (
                                     <Skeleton variant="rectangular" height={20} />
                                 </Grid>
                                 <Grid item xs={6}>
-                                    <Grid container alignItems="center" spacing={gridSpacing} justifyContent="space-between">
+                                    <Grid
+                                        container
+                                        alignItems="center"
+                                        spacing={gridSpacing}
+                                        justifyContent="space-between"
+                                    >
                                         <Grid item xs zeroMinWidth>
                                             <Skeleton variant="rectangular" height={20} />
                                         </Grid>
@@ -146,7 +171,7 @@ const PopularCard = () => (
                 </Grid>
             </Grid>
         </CardContent>
-        <CardContent sx={{ p: 1.25, display: 'flex', pt: 0, justifyContent: 'center' }}>
+        <CardContent sx={{p: 1.25, display: 'flex', pt: 0, justifyContent: 'center'}}>
             <Skeleton variant="rectangular" height={25} width={75} />
         </CardContent>
     </Card>

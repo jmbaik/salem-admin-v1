@@ -1,17 +1,17 @@
-import { createRoot } from 'react-dom/client';
+import {createRoot} from 'react-dom/client';
 
 // third party
-import { BrowserRouter } from 'react-router-dom';
+import {BrowserRouter} from 'react-router-dom';
 
 // project imports
 import App from 'App';
 import * as serviceWorker from 'serviceWorker';
 
 // style + assets
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+import {ReactQueryDevtools} from '@tanstack/react-query-devtools';
 import 'assets/scss/style.scss';
-import { RecoilRoot } from 'recoil';
+import {RecoilRoot} from 'recoil';
 import config from './config';
 
 // ==============================|| REACT DOM RENDER  ||============================== //

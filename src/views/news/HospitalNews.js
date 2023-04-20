@@ -1,5 +1,5 @@
-import { areaCodeApi } from 'api/commonCodeApi';
-import { MDataGrid } from 'ui-component/datagrid/MDataGrid';
+import {areaCodeApi} from 'api/commonCodeApi';
+import {MDataGrid} from 'ui-component/datagrid/MDataGrid';
 
 const HospitalNews = () => {
     const deleteRow = (param) => {
@@ -10,7 +10,7 @@ const HospitalNews = () => {
         // console.log(params.row['name']);
     };
     const columns = [
-        { field: 'code', headerName: 'CODE', width: 90, headerAlign: 'center' },
+        {field: 'code', headerName: 'CODE', width: 90, headerAlign: 'center'},
         {
             field: 'name',
             headerName: 'Name',

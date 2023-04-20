@@ -1,4 +1,4 @@
-const { default: MarriageEnroll } = require('./MarriageEnroll');
+const {default: MarriageEnroll} = require('./MarriageEnroll');
 import DonationEnroll from './DonationEnroll';
 
-export { MarriageEnroll, DonationEnroll };
+export {MarriageEnroll, DonationEnroll};

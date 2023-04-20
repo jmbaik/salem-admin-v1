@@ -1,6 +1,6 @@
 // material-ui
-import { Grid, Typography } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
+import {Grid, Typography} from '@mui/material';
+import {useTheme} from '@mui/material/styles';
 
 /**
  * if you want to use image instead of <svg> uncomment following.

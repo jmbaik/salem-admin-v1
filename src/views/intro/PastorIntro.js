@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import {useState} from 'react';
 
-const { Box, Accordion, AccordionSummary, Typography, AccordionDetails } = require('@mui/material');
+const {Box, Accordion, AccordionSummary, Typography, AccordionDetails} = require('@mui/material');
 
 const PastorIntro = () => {
     const [accord, setAccord] = useState('');

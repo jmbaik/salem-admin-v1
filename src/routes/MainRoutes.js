@@ -1,4 +1,4 @@
-import { lazy } from 'react';
+import {lazy} from 'react';
 
 // project imports
 import MainLayout from 'layout/MainLayout';
@@ -25,67 +25,67 @@ const MainRoutes = {
     children: [
         {
             path: '/',
-            element: <DashboardDefault />
+            element: <DashboardDefault />,
         },
         {
             path: 'dashboard',
             children: [
                 {
                     path: 'default',
-                    element: <DashboardDefault />
-                }
-            ]
+                    element: <DashboardDefault />,
+                },
+            ],
         },
         {
             path: 'utils',
             children: [
                 {
                     path: 'util-typography',
-                    element: <UtilsTypography />
-                }
-            ]
+                    element: <UtilsTypography />,
+                },
+            ],
         },
         {
             path: 'utils',
             children: [
                 {
                     path: 'util-color',
-                    element: <UtilsColor />
-                }
-            ]
+                    element: <UtilsColor />,
+                },
+            ],
         },
         {
             path: 'utils',
             children: [
                 {
                     path: 'util-shadow',
-                    element: <UtilsShadow />
-                }
-            ]
+                    element: <UtilsShadow />,
+                },
+            ],
         },
         {
             path: 'icons',
             children: [
                 {
                     path: 'tabler-icons',
-                    element: <UtilsTablerIcons />
-                }
-            ]
+                    element: <UtilsTablerIcons />,
+                },
+            ],
         },
         {
             path: 'icons',
             children: [
                 {
                     path: 'material-icons',
-                    element: <UtilsMaterialIcons />
-                }
-            ]
+                    element: <UtilsMaterialIcons />,
+                },
+            ],
         },
         {
             path: 'sample-page',
-            element: <SamplePage />
-        }
-    ]
+            element: <SamplePage />,
+        },
+    ],
 };
 
 export default MainRoutes;

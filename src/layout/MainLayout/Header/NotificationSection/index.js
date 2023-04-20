@@ -1,8 +1,8 @@
-import { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import {useState, useRef, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
+import {useTheme} from '@mui/material/styles';
 import {
     Avatar,
     Box,
@@ -18,7 +18,7 @@ import {
     Stack,
     TextField,
     Typography,
-    useMediaQuery
+    useMediaQuery,
 } from '@mui/material';
 
 // third-party
@@ -30,26 +30,26 @@ import Transitions from 'ui-component/extended/Transitions';
 import NotificationList from './NotificationList';
 
 // assets
-import { IconBell } from '@tabler/icons';
+import {IconBell} from '@tabler/icons';
 
 // notification status options
 const status = [
     {
         value: 'all',
-        label: 'All Notification'
+        label: 'All Notification',
     },
     {
         value: 'new',
-        label: 'New'
+        label: 'New',
     },
     {
         value: 'unread',
-        label: 'Unread'
+        label: 'Unread',
     },
     {
         value: 'other',
-        label: 'Other'
-    }
+        label: 'Other',
+    },
 ];
 
 // ==============================|| NOTIFICATION ||============================== //
@@ -95,11 +95,11 @@ const NotificationSection = () => {
                     ml: 2,
                     mr: 3,
                     [theme.breakpoints.down('md')]: {
-                        mr: 2
-                    }
+                        mr: 2,
+                    },
                 }}
             >
-                <ButtonBase sx={{ borderRadius: '12px' }}>
+                <ButtonBase sx={{borderRadius: '12px'}}>
                     <Avatar
                         variant="rounded"
                         sx={{
@@ -110,8 +110,8 @@ const NotificationSection = () => {
                             color: theme.palette.secondary.dark,
                             '&[aria-controls="menu-list-grow"],&:hover': {
                                 background: theme.palette.secondary.dark,
-                                color: theme.palette.secondary.light
-                            }
+                                color: theme.palette.secondary.light,
+                            },
                         }}
                         ref={anchorRef}
                         aria-controls={open ? 'menu-list-grow' : undefined}
@@ -135,20 +135,31 @@ const NotificationSection = () => {
                         {
                             name: 'offset',
                             options: {
-                                offset: [matchesXs ? 5 : 0, 20]
-                            }
-                        }
-                    ]
+                                offset: [matchesXs ? 5 : 0, 20],
+                            },
+                        },
+                    ],
                 }}
             >
-                {({ TransitionProps }) => (
+                {({TransitionProps}) => (
                     <Transitions position={matchesXs ? 'top' : 'top-right'} in={open} {...TransitionProps}>
                         <Paper>
                             <ClickAwayListener onClickAway={handleClose}>
-                                <MainCard border={false} elevation={16} content={false} boxShadow shadow={theme.shadows[16]}>
+                                <MainCard
+                                    border={false}
+                                    elevation={16}
+                                    content={false}
+                                    boxShadow
+                                    shadow={theme.shadows[16]}
+                                >
                                     <Grid container direction="column" spacing={2}>
                                         <Grid item xs={12}>
-                                            <Grid container alignItems="center" justifyContent="space-between" sx={{ pt: 2, px: 2 }}>
+                                            <Grid
+                                                container
+                                                alignItems="center"
+                                                justifyContent="space-between"
+                                                sx={{pt: 2, px: 2}}
+                                            >
                                                 <Grid item>
                                                     <Stack direction="row" spacing={2}>
                                                         <Typography variant="subtitle1">All Notification</Typography>
@@ -157,13 +168,18 @@ const NotificationSection = () => {
                                                             label="01"
                                                             sx={{
                                                                 color: theme.palette.background.default,
-                                                                bgcolor: theme.palette.warning.dark
+                                                                bgcolor: theme.palette.warning.dark,
                                                             }}
                                                         />
                                                     </Stack>
                                                 </Grid>
                                                 <Grid item>
-                                                    <Typography component={Link} to="#" variant="subtitle2" color="primary">
+                                                    <Typography
+                                                        component={Link}
+                                                        to="#"
+                                                        variant="subtitle2"
+                                                        color="primary"
+                                                    >
                                                         Mark as all read
                                                     </Typography>
                                                 </Grid>
@@ -171,11 +187,15 @@ const NotificationSection = () => {
                                         </Grid>
                                         <Grid item xs={12}>
                                             <PerfectScrollbar
-                                                style={{ height: '100%', maxHeight: 'calc(100vh - 205px)', overflowX: 'hidden' }}
+                                                style={{
+                                                    height: '100%',
+                                                    maxHeight: 'calc(100vh - 205px)',
+                                                    overflowX: 'hidden',
+                                                }}
                                             >
                                                 <Grid container direction="column" spacing={2}>
                                                     <Grid item xs={12}>
-                                                        <Box sx={{ px: 2, pt: 0.25 }}>
+                                                        <Box sx={{px: 2, pt: 0.25}}>
                                                             <TextField
                                                                 id="outlined-select-currency-native"
                                                                 select
@@ -183,7 +203,7 @@ const NotificationSection = () => {
                                                                 value={value}
                                                                 onChange={handleChange}
                                                                 SelectProps={{
-                                                                    native: true
+                                                                    native: true,
                                                                 }}
                                                             >
                                                                 {status.map((option) => (
@@ -195,7 +215,7 @@ const NotificationSection = () => {
                                                         </Box>
                                                     </Grid>
                                                     <Grid item xs={12} p={0}>
-                                                        <Divider sx={{ my: 0 }} />
+                                                        <Divider sx={{my: 0}} />
                                                     </Grid>
                                                 </Grid>
                                                 <NotificationList />
@@ -203,7 +223,7 @@ const NotificationSection = () => {
                                         </Grid>
                                     </Grid>
                                     <Divider />
-                                    <CardActions sx={{ p: 1.25, justifyContent: 'center' }}>
+                                    <CardActions sx={{p: 1.25, justifyContent: 'center'}}>
                                         <Button size="small" disableElevation>
                                             View All
                                         </Button>

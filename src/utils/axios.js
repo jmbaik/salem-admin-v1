@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getUserFromLocalStorage } from './localStorage';
+import {getUserFromLocalStorage} from './localStorage';
 
 const apiFetch = axios.create({
     baseURL: process.env.REACT_APP_API_URL + '/api',

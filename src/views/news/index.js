@@ -4,4 +4,4 @@ import MarriageNews from './MarriageNews';
 import OpeningNews from './OpeningNews';
 import PassAwayNews from './PassAwayNews';
 
-export { BirthNews, HospitalNews, MarriageNews, OpeningNews, PassAwayNews };
+export {BirthNews, HospitalNews, MarriageNews, OpeningNews, PassAwayNews};

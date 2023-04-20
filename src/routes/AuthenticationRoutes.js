@@ -1,4 +1,4 @@
-import { lazy } from 'react';
+import {lazy} from 'react';
 
 // project imports
 import Loadable from 'ui-component/Loadable';
@@ -16,13 +16,13 @@ const AuthenticationRoutes = {
     children: [
         {
             path: '/pages/login/login3',
-            element: <AuthLogin3 />
+            element: <AuthLogin3 />,
         },
         {
             path: '/pages/register/register3',
-            element: <AuthRegister3 />
-        }
-    ]
+            element: <AuthRegister3 />,
+        },
+    ],
 };
 
 export default AuthenticationRoutes;

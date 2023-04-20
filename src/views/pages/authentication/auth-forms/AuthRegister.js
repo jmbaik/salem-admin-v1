@@ -89,7 +89,13 @@ const FirebaseRegister = ({...others}) => {
                             }}
                         >
                             <Box sx={{mr: {xs: 1, sm: 2, width: 20}}}>
-                                <img src={Google} alt="google" width={16} height={16} style={{marginRight: matchDownSM ? 8 : 16}} />
+                                <img
+                                    src={Google}
+                                    alt="google"
+                                    width={16}
+                                    height={16}
+                                    style={{marginRight: matchDownSM ? 8 : 16}}
+                                />
                             </Box>
                             Sign up with Google
                         </Button>
@@ -177,8 +183,14 @@ const FirebaseRegister = ({...others}) => {
                                 />
                             </Grid>
                         </Grid>
-                        <FormControl fullWidth error={Boolean(touched.email && errors.email)} sx={{...theme.typography.customInput}}>
-                            <InputLabel htmlFor="outlined-adornment-email-register">Email Address / Username</InputLabel>
+                        <FormControl
+                            fullWidth
+                            error={Boolean(touched.email && errors.email)}
+                            sx={{...theme.typography.customInput}}
+                        >
+                            <InputLabel htmlFor="outlined-adornment-email-register">
+                                Email Address / Username
+                            </InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-email-register"
                                 type="email"
@@ -195,7 +207,11 @@ const FirebaseRegister = ({...others}) => {
                             )}
                         </FormControl>
 
-                        <FormControl fullWidth error={Boolean(touched.password && errors.password)} sx={{...theme.typography.customInput}}>
+                        <FormControl
+                            fullWidth
+                            error={Boolean(touched.password && errors.password)}
+                            sx={{...theme.typography.customInput}}
+                        >
                             <InputLabel htmlFor="outlined-adornment-password-register">Password</InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-password-register"
@@ -235,7 +251,10 @@ const FirebaseRegister = ({...others}) => {
                                 <Box sx={{mb: 2}}>
                                     <Grid container spacing={2} alignItems="center">
                                         <Grid item>
-                                            <Box style={{backgroundColor: level?.color}} sx={{width: 85, height: 8, borderRadius: '7px'}} />
+                                            <Box
+                                                style={{backgroundColor: level?.color}}
+                                                sx={{width: 85, height: 8, borderRadius: '7px'}}
+                                            />
                                         </Grid>
                                         <Grid item>
                                             <Typography variant="subtitle1" fontSize="0.75rem">

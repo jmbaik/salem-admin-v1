@@ -10,15 +10,15 @@ import {
     DialogTitle,
     Typography,
 } from '@mui/material';
-import { useState } from 'react';
+import {useState} from 'react';
 
 const OpeningNews = () => {
     const [open, setOpen] = useState(false);
     return (
         <>
-            <Card sx={{ maxWidth: 500 }}>
+            <Card sx={{maxWidth: 500}}>
                 <CardMedia
-                    sx={{ height: 140 }}
+                    sx={{height: 140}}
                     image="https://images.unsplash.com/photo-1681282894814-fc9281ef8c35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1587&q=80"
                     title="green iguana"
                 />
@@ -27,8 +27,8 @@ const OpeningNews = () => {
                         Lizard
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except
-                        Antarctica
+                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
+                        continents except Antarctica
                     </Typography>
                 </CardContent>
                 <CardActions>
@@ -41,8 +41,8 @@ const OpeningNews = () => {
             <Dialog open={open} onClose={() => setOpen(false)}>
                 <DialogTitle> This is my Dialog</DialogTitle>
                 <DialogContent>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, facilis vitae iure error nobis autem
-                    perferendis molestias natus dolorem sint
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, facilis vitae iure error
+                    nobis autem perferendis molestias natus dolorem sint
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={() => setOpen(false)}>Cancel</Button>

@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import {useState} from 'react';
 
 // material-ui
-import { Avatar, Button, CardActions, CardContent, Divider, Grid, Menu, MenuItem, Typography } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
+import {Avatar, Button, CardActions, CardContent, Divider, Grid, Menu, MenuItem, Typography} from '@mui/material';
+import {useTheme} from '@mui/material/styles';
 
 // project imports
-import { gridSpacing } from 'atoms/constants';
+import {gridSpacing} from 'atoms/constants';
 import MainCard from 'ui-component/cards/MainCard';
 import SkeletonPopularCard from 'ui-component/cards/Skeleton/PopularCard';
 import BajajAreaChartCard from './BajajAreaChartCard';
@@ -19,7 +19,7 @@ import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 
 // ==============================|| DASHBOARD DEFAULT - POPULAR CARD ||============================== //
 
-const PopularCard = ({ isLoading }) => {
+const PopularCard = ({isLoading}) => {
     const theme = useTheme();
 
     const [anchorEl, setAnchorEl] = useState(null);
@@ -50,7 +50,7 @@ const PopularCard = ({ isLoading }) => {
                                             fontSize="small"
                                             sx={{
                                                 color: theme.palette.primary[200],
-                                                cursor: 'pointer'
+                                                cursor: 'pointer',
                                             }}
                                             aria-controls="menu-popular-card"
                                             aria-haspopup="true"
@@ -65,11 +65,11 @@ const PopularCard = ({ isLoading }) => {
                                             variant="selectedMenu"
                                             anchorOrigin={{
                                                 vertical: 'bottom',
-                                                horizontal: 'right'
+                                                horizontal: 'right',
                                             }}
                                             transformOrigin={{
                                                 vertical: 'top',
-                                                horizontal: 'right'
+                                                horizontal: 'right',
                                             }}
                                         >
                                             <MenuItem onClick={handleClose}> Today</MenuItem>
@@ -79,7 +79,7 @@ const PopularCard = ({ isLoading }) => {
                                     </Grid>
                                 </Grid>
                             </Grid>
-                            <Grid item xs={12} sx={{ pt: '16px !important' }}>
+                            <Grid item xs={12} sx={{pt: '16px !important'}}>
                                 <BajajAreaChartCard />
                             </Grid>
                             <Grid item xs={12}>
@@ -107,10 +107,13 @@ const PopularCard = ({ isLoading }) => {
                                                                 borderRadius: '5px',
                                                                 backgroundColor: theme.palette.success.light,
                                                                 color: theme.palette.success.dark,
-                                                                ml: 2
+                                                                ml: 2,
                                                             }}
                                                         >
-                                                            <KeyboardArrowUpOutlinedIcon fontSize="small" color="inherit" />
+                                                            <KeyboardArrowUpOutlinedIcon
+                                                                fontSize="small"
+                                                                color="inherit"
+                                                            />
                                                         </Avatar>
                                                     </Grid>
                                                 </Grid>
@@ -118,12 +121,12 @@ const PopularCard = ({ isLoading }) => {
                                         </Grid>
                                     </Grid>
                                     <Grid item>
-                                        <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
+                                        <Typography variant="subtitle2" sx={{color: 'success.dark'}}>
                                             10% Profit
                                         </Typography>
                                     </Grid>
                                 </Grid>
-                                <Divider sx={{ my: 1.5 }} />
+                                <Divider sx={{my: 1.5}} />
                                 <Grid container direction="column">
                                     <Grid item>
                                         <Grid container alignItems="center" justifyContent="space-between">
@@ -148,10 +151,13 @@ const PopularCard = ({ isLoading }) => {
                                                                 borderRadius: '5px',
                                                                 backgroundColor: theme.palette.orange.light,
                                                                 color: theme.palette.orange.dark,
-                                                                marginLeft: 1.875
+                                                                marginLeft: 1.875,
                                                             }}
                                                         >
-                                                            <KeyboardArrowDownOutlinedIcon fontSize="small" color="inherit" />
+                                                            <KeyboardArrowDownOutlinedIcon
+                                                                fontSize="small"
+                                                                color="inherit"
+                                                            />
                                                         </Avatar>
                                                     </Grid>
                                                 </Grid>
@@ -159,12 +165,12 @@ const PopularCard = ({ isLoading }) => {
                                         </Grid>
                                     </Grid>
                                     <Grid item>
-                                        <Typography variant="subtitle2" sx={{ color: theme.palette.orange.dark }}>
+                                        <Typography variant="subtitle2" sx={{color: theme.palette.orange.dark}}>
                                             10% loss
                                         </Typography>
                                     </Grid>
                                 </Grid>
-                                <Divider sx={{ my: 1.5 }} />
+                                <Divider sx={{my: 1.5}} />
                                 <Grid container direction="column">
                                     <Grid item>
                                         <Grid container alignItems="center" justifyContent="space-between">
@@ -189,10 +195,13 @@ const PopularCard = ({ isLoading }) => {
                                                                 borderRadius: '5px',
                                                                 backgroundColor: theme.palette.success.light,
                                                                 color: theme.palette.success.dark,
-                                                                ml: 2
+                                                                ml: 2,
                                                             }}
                                                         >
-                                                            <KeyboardArrowUpOutlinedIcon fontSize="small" color="inherit" />
+                                                            <KeyboardArrowUpOutlinedIcon
+                                                                fontSize="small"
+                                                                color="inherit"
+                                                            />
                                                         </Avatar>
                                                     </Grid>
                                                 </Grid>
@@ -200,12 +209,12 @@ const PopularCard = ({ isLoading }) => {
                                         </Grid>
                                     </Grid>
                                     <Grid item>
-                                        <Typography variant="subtitle2" sx={{ color: theme.palette.success.dark }}>
+                                        <Typography variant="subtitle2" sx={{color: theme.palette.success.dark}}>
                                             10% Profit
                                         </Typography>
                                     </Grid>
                                 </Grid>
-                                <Divider sx={{ my: 1.5 }} />
+                                <Divider sx={{my: 1.5}} />
                                 <Grid container direction="column">
                                     <Grid item>
                                         <Grid container alignItems="center" justifyContent="space-between">
@@ -230,10 +239,13 @@ const PopularCard = ({ isLoading }) => {
                                                                 borderRadius: '5px',
                                                                 backgroundColor: theme.palette.orange.light,
                                                                 color: theme.palette.orange.dark,
-                                                                ml: 2
+                                                                ml: 2,
                                                             }}
                                                         >
-                                                            <KeyboardArrowDownOutlinedIcon fontSize="small" color="inherit" />
+                                                            <KeyboardArrowDownOutlinedIcon
+                                                                fontSize="small"
+                                                                color="inherit"
+                                                            />
                                                         </Avatar>
                                                     </Grid>
                                                 </Grid>
@@ -241,12 +253,12 @@ const PopularCard = ({ isLoading }) => {
                                         </Grid>
                                     </Grid>
                                     <Grid item>
-                                        <Typography variant="subtitle2" sx={{ color: theme.palette.orange.dark }}>
+                                        <Typography variant="subtitle2" sx={{color: theme.palette.orange.dark}}>
                                             10% loss
                                         </Typography>
                                     </Grid>
                                 </Grid>
-                                <Divider sx={{ my: 1.5 }} />
+                                <Divider sx={{my: 1.5}} />
                                 <Grid container direction="column">
                                     <Grid item>
                                         <Grid container alignItems="center" justifyContent="space-between">
@@ -271,10 +283,13 @@ const PopularCard = ({ isLoading }) => {
                                                                 borderRadius: '5px',
                                                                 backgroundColor: theme.palette.orange.light,
                                                                 color: theme.palette.orange.dark,
-                                                                ml: 2
+                                                                ml: 2,
                                                             }}
                                                         >
-                                                            <KeyboardArrowDownOutlinedIcon fontSize="small" color="inherit" />
+                                                            <KeyboardArrowDownOutlinedIcon
+                                                                fontSize="small"
+                                                                color="inherit"
+                                                            />
                                                         </Avatar>
                                                     </Grid>
                                                 </Grid>
@@ -282,7 +297,7 @@ const PopularCard = ({ isLoading }) => {
                                         </Grid>
                                     </Grid>
                                     <Grid item>
-                                        <Typography variant="subtitle2" sx={{ color: theme.palette.orange.dark }}>
+                                        <Typography variant="subtitle2" sx={{color: theme.palette.orange.dark}}>
                                             10% loss
                                         </Typography>
                                     </Grid>
@@ -290,7 +305,7 @@ const PopularCard = ({ isLoading }) => {
                             </Grid>
                         </Grid>
                     </CardContent>
-                    <CardActions sx={{ p: 1.25, pt: 0, justifyContent: 'center' }}>
+                    <CardActions sx={{p: 1.25, pt: 0, justifyContent: 'center'}}>
                         <Button size="small" disableElevation>
                             View All
                             <ChevronRightOutlinedIcon />
@@ -303,7 +318,7 @@ const PopularCard = ({ isLoading }) => {
 };
 
 PopularCard.propTypes = {
-    isLoading: PropTypes.bool
+    isLoading: PropTypes.bool,
 };
 
 export default PopularCard;

@@ -6,8 +6,8 @@ const thumbsContainer = {
 };
 const thumb = {
     display: 'inline-flex',
-    borderRadius: 
-}
+    borderRadius: 2,
+};
 
 const ComingWayGuide = () => {
     return <div>ComingWayGuide</div>;

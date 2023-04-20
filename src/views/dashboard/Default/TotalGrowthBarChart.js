@@ -1,48 +1,48 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 
 // material-ui
-import { Grid, MenuItem, TextField, Typography } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
+import {Grid, MenuItem, TextField, Typography} from '@mui/material';
+import {useTheme} from '@mui/material/styles';
 
 // third-party
 import ApexCharts from 'apexcharts';
 import Chart from 'react-apexcharts';
 
 // project imports
-import { gridSpacing } from 'atoms/constants';
+import {gridSpacing} from 'atoms/constants';
 import MainCard from 'ui-component/cards/MainCard';
 import SkeletonTotalGrowthBarChart from 'ui-component/cards/Skeleton/TotalGrowthBarChart';
 
 // chart data
-import { customizationState } from 'atoms/customizationState';
-import { useRecoilValue } from 'recoil';
+import {customizationState} from 'atoms/customizationState';
+import {useRecoilValue} from 'recoil';
 import chartData from './chart-data/total-growth-bar-chart';
 
 const status = [
     {
         value: 'today',
-        label: 'Today'
+        label: 'Today',
     },
     {
         value: 'month',
-        label: 'This Month'
+        label: 'This Month',
     },
     {
         value: 'year',
-        label: 'This Year'
-    }
+        label: 'This Year',
+    },
 ];
 
 // ==============================|| DASHBOARD DEFAULT - TOTAL GROWTH BAR CHART ||============================== //
 
-const TotalGrowthBarChart = ({ isLoading }) => {
+const TotalGrowthBarChart = ({isLoading}) => {
     const [value, setValue] = useState('today');
     const theme = useTheme();
     const customization = useRecoilValue(customizationState);
 
-    const { navType } = customization;
-    const { primary } = theme.palette.text;
+    const {navType} = customization;
+    const {primary} = theme.palette.text;
     const darkLight = theme.palette.dark.light;
     const grey200 = theme.palette.grey[200];
     const grey500 = theme.palette.grey[500];
@@ -59,35 +59,59 @@ const TotalGrowthBarChart = ({ isLoading }) => {
             xaxis: {
                 labels: {
                     style: {
-                        colors: [primary, primary, primary, primary, primary, primary, primary, primary, primary, primary, primary, primary]
-                    }
-                }
+                        colors: [
+                            primary,
+                            primary,
+                            primary,
+                            primary,
+                            primary,
+                            primary,
+                            primary,
+                            primary,
+                            primary,
+                            primary,
+                            primary,
+                            primary,
+                        ],
+                    },
+                },
             },
             yaxis: {
                 labels: {
                     style: {
-                        colors: [primary]
-                    }
-                }
+                        colors: [primary],
+                    },
+                },
             },
             grid: {
-                borderColor: grey200
+                borderColor: grey200,
             },
             tooltip: {
-                theme: 'light'
+                theme: 'light',
             },
             legend: {
                 labels: {
-                    colors: grey500
-                }
-            }
+                    colors: grey500,
+                },
+            },
         };
 
         // do not load chart when loading
         if (!isLoading) {
             ApexCharts.exec(`bar-chart`, 'updateOptions', newChartData);
         }
-    }, [navType, primary200, primaryDark, secondaryMain, secondaryLight, primary, darkLight, grey200, isLoading, grey500]);
+    }, [
+        navType,
+        primary200,
+        primaryDark,
+        secondaryMain,
+        secondaryLight,
+        primary,
+        darkLight,
+        grey200,
+        isLoading,
+        grey500,
+    ]);
 
     return (
         <>
@@ -135,7 +159,7 @@ const TotalGrowthBarChart = ({ isLoading }) => {
 };
 
 TotalGrowthBarChart.propTypes = {
-    isLoading: PropTypes.bool
+    isLoading: PropTypes.bool,
 };
 
 export default TotalGrowthBarChart;

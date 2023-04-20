@@ -1,9 +1,9 @@
 // assets
-import { IconKey } from '@tabler/icons';
+import {IconKey} from '@tabler/icons';
 
 // constant
 const icons = {
-    IconKey
+    IconKey,
 };
 
 // ==============================|| EXTRA PAGES MENU ITEMS ||============================== //
@@ -50,11 +50,11 @@ const pages = {
                     type: 'item',
                     url: '/admin/worship',
                     icon: icons.IconBrandChrome,
-                    breadcrumbs: true
-                }
-            ]
-        }
-    ]
+                    breadcrumbs: true,
+                },
+            ],
+        },
+    ],
 };
 
 export default pages;

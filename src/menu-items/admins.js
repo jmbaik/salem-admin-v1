@@ -1,9 +1,9 @@
 // assets
-import { IconKey } from '@tabler/icons';
+import {IconKey} from '@tabler/icons';
 
 // constant
 const icons = {
-    IconKey
+    IconKey,
 };
 
 // ==============================|| EXTRA PAGES MENU ITEMS ||============================== //
@@ -26,7 +26,7 @@ const admins = {
                     type: 'item',
                     url: '/admin/intro/church',
                     icon: icons.IconBrandChrome,
-                    breadcrumbs: true
+                    breadcrumbs: true,
                 },
                 {
                     id: 'pastor',
@@ -34,7 +34,7 @@ const admins = {
                     type: 'item',
                     url: '/admin/intro/pastor',
                     icon: icons.IconBrandChrome,
-                    breadcrumbs: true
+                    breadcrumbs: true,
                 },
                 {
                     id: 'serve-people',
@@ -42,9 +42,9 @@ const admins = {
                     type: 'item',
                     url: '/admin/intro/serve-people',
                     icon: icons.IconBrandChrome,
-                    breadcrumbs: true
-                }
-            ]
+                    breadcrumbs: true,
+                },
+            ],
         },
         {
             id: 'guide',
@@ -59,7 +59,7 @@ const admins = {
                     type: 'item',
                     url: '/admin/guide/coming',
                     icon: icons.IconBrandChrome,
-                    breadcrumbs: true
+                    breadcrumbs: true,
                 },
                 {
                     id: 'new-family',
@@ -67,7 +67,7 @@ const admins = {
                     type: 'item',
                     url: '/admin/guide/new-family',
                     icon: icons.IconBrandChrome,
-                    breadcrumbs: true
+                    breadcrumbs: true,
                 },
                 {
                     id: 'offering',
@@ -75,7 +75,7 @@ const admins = {
                     type: 'item',
                     url: '/admin/guide/offering',
                     icon: icons.IconBrandChrome,
-                    breadcrumbs: true
+                    breadcrumbs: true,
                 },
                 {
                     id: 'worship',
@@ -83,9 +83,9 @@ const admins = {
                     type: 'item',
                     url: '/admin/guide/worship',
                     icon: icons.IconBrandChrome,
-                    breadcrumbs: true
-                }
-            ]
+                    breadcrumbs: true,
+                },
+            ],
         },
         {
             id: 'news',
@@ -100,7 +100,7 @@ const admins = {
                     type: 'item',
                     url: '/admin/news/birth',
                     icon: icons.IconBrandChrome,
-                    breadcrumbs: true
+                    breadcrumbs: true,
                 },
                 {
                     id: 'hospital',
@@ -108,7 +108,7 @@ const admins = {
                     type: 'item',
                     url: '/admin/news/hospital',
                     icon: icons.IconBrandChrome,
-                    breadcrumbs: true
+                    breadcrumbs: true,
                 },
                 {
                     id: 'marriage',
@@ -116,7 +116,7 @@ const admins = {
                     type: 'item',
                     url: '/admin/news/marriage',
                     icon: icons.IconBrandChrome,
-                    breadcrumbs: true
+                    breadcrumbs: true,
                 },
                 {
                     id: 'opening',
@@ -124,7 +124,7 @@ const admins = {
                     type: 'item',
                     url: '/admin/news/opening',
                     icon: icons.IconBrandChrome,
-                    breadcrumbs: true
+                    breadcrumbs: true,
                 },
                 {
                     id: 'pass-away',
@@ -132,11 +132,11 @@ const admins = {
                     type: 'item',
                     url: '/admin/news/pass-away',
                     icon: icons.IconBrandChrome,
-                    breadcrumbs: true
-                }
-            ]
-        }
-    ]
+                    breadcrumbs: true,
+                },
+            ],
+        },
+    ],
 };
 
 export default admins;

@@ -1,12 +1,12 @@
-import { lazy } from 'react';
+import {lazy} from 'react';
 
 // project imports
 import MainLayout from 'layout/MainLayout';
 import Loadable from 'ui-component/Loadable';
-import { DonationEnroll, MarriageEnroll } from 'views/enroll';
-import { ComingWayGuide, NewFamilyGuide, OfferingGuide, WorshipGuide } from 'views/guide';
-import { ChurchIntro, PastorIntro, ServePeopleIntro } from 'views/intro';
-import { BirthNews, HospitalNews, MarriageNews, OpeningNews, PassAwayNews } from 'views/news';
+import {DonationEnroll, MarriageEnroll} from 'views/enroll';
+import {ComingWayGuide, NewFamilyGuide, OfferingGuide, WorshipGuide} from 'views/guide';
+import {ChurchIntro, PastorIntro, ServePeopleIntro} from 'views/intro';
+import {BirthNews, HospitalNews, MarriageNews, OpeningNews, PassAwayNews} from 'views/news';
 import Worship from 'views/worship/Worship';
 
 // dashboard routing
@@ -33,82 +33,82 @@ const AdminRoutes = {
             children: [
                 {
                     path: 'church',
-                    element: <ChurchIntro />
+                    element: <ChurchIntro />,
                 },
                 {
                     path: 'pastor',
-                    element: <PastorIntro />
+                    element: <PastorIntro />,
                 },
                 {
                     path: 'serve-people',
-                    element: <ServePeopleIntro />
-                }
-            ]
+                    element: <ServePeopleIntro />,
+                },
+            ],
         },
         {
             path: 'guide',
             children: [
                 {
                     path: 'coming',
-                    element: <ComingWayGuide />
+                    element: <ComingWayGuide />,
                 },
                 {
                     path: 'new-family',
-                    element: <NewFamilyGuide />
+                    element: <NewFamilyGuide />,
                 },
                 {
                     path: 'offering',
-                    element: <OfferingGuide />
+                    element: <OfferingGuide />,
                 },
                 {
                     path: 'worship',
-                    element: <WorshipGuide />
-                }
-            ]
+                    element: <WorshipGuide />,
+                },
+            ],
         },
         {
             path: 'news',
             children: [
                 {
                     path: 'birth',
-                    element: <BirthNews />
+                    element: <BirthNews />,
                 },
                 {
                     path: 'hospital',
-                    element: <HospitalNews />
+                    element: <HospitalNews />,
                 },
                 {
                     path: 'marriage',
-                    element: <MarriageNews />
+                    element: <MarriageNews />,
                 },
                 {
                     path: 'opening',
-                    element: <OpeningNews />
+                    element: <OpeningNews />,
                 },
                 {
                     path: 'pass-away',
-                    element: <PassAwayNews />
-                }
-            ]
+                    element: <PassAwayNews />,
+                },
+            ],
         },
         {
             path: 'enroll',
             children: [
                 {
                     path: 'donation',
-                    element: <DonationEnroll />
+                    element: <DonationEnroll />,
                 },
                 {
                     path: 'marriage',
-                    element: <MarriageEnroll />
-                }
-            ]
+                    element: <MarriageEnroll />,
+                },
+            ],
         },
         {
             path: 'worship',
-            element: <Worship />
-        }
-    ]
+            element: <Worship />,
+        },
+    ],
 };
 
 export default AdminRoutes;

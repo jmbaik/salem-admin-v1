@@ -1,5 +1,5 @@
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Box, Pagination, PaginationItem, Typography } from '@mui/material';
+import {Box, Pagination, PaginationItem, Typography} from '@mui/material';
 import {
     DataGrid,
     GridActionsCellItem,
@@ -8,8 +8,8 @@ import {
     useGridApiContext,
     useGridSelector,
 } from '@mui/x-data-grid';
-import { useQuery } from '@tanstack/react-query';
-import { useCallback, useMemo, useState } from 'react';
+import {useQuery} from '@tanstack/react-query';
+import {useCallback, useMemo, useState} from 'react';
 
 export function MDataGrid({
     queryKey,
@@ -25,7 +25,7 @@ export function MDataGrid({
     isDelete,
     hideCols,
 }) {
-    const { data, isLoading, isError, error } = useQuery({
+    const {data, isLoading, isError, error} = useQuery({
         queryKey: [queryKey],
         queryFn: apiFunction,
     });
@@ -51,7 +51,9 @@ export function MDataGrid({
                 field: 'actions',
                 type: 'actions',
                 width: 80,
-                getActions: (params) => [<GridActionsCellItem icon={<DeleteIcon />} label="Delete" onClick={deleteRow(params)} />],
+                getActions: (params) => [
+                    <GridActionsCellItem icon={<DeleteIcon />} label="Delete" onClick={deleteRow(params)} />,
+                ],
             },
         ];
     }

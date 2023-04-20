@@ -1,13 +1,13 @@
 export const addUserToLocalStorage = (user) => {
-  localStorage.setItem('adminUser', JSON.stringify(user));
+    localStorage.setItem('adminUser', JSON.stringify(user));
 };
 
 export const removeUserFromLocalStorage = () => {
-  localStorage.removeItem('adminUser');
+    localStorage.removeItem('adminUser');
 };
 
 export const getUserFromLocalStorage = () => {
-  const result = localStorage.getItem('adminUser');
-  const user = result ? JSON.parse(result) : null;
-  return user;
+    const result = localStorage.getItem('adminUser');
+    const user = result ? JSON.parse(result) : null;
+    return user;
 };

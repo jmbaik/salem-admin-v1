@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 // material-ui
-import { styled, useTheme } from '@mui/material/styles';
+import {styled, useTheme} from '@mui/material/styles';
 import {
     Avatar,
     Card,
@@ -13,26 +13,26 @@ import {
     ListItemAvatar,
     ListItemText,
     Typography,
-    linearProgressClasses
+    linearProgressClasses,
 } from '@mui/material';
 
 // assets
 import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
 
 // styles
-const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
+const BorderLinearProgress = styled(LinearProgress)(({theme}) => ({
     height: 10,
     borderRadius: 30,
     [`&.${linearProgressClasses.colorPrimary}`]: {
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
     },
     [`& .${linearProgressClasses.bar}`]: {
         borderRadius: 5,
-        backgroundColor: theme.palette.primary.main
-    }
+        backgroundColor: theme.palette.primary.main,
+    },
 }));
 
-const CardStyle = styled(Card)(({ theme }) => ({
+const CardStyle = styled(Card)(({theme}) => ({
     background: theme.palette.primary.light,
     marginBottom: '22px',
     overflow: 'hidden',
@@ -45,21 +45,21 @@ const CardStyle = styled(Card)(({ theme }) => ({
         background: theme.palette.primary[200],
         borderRadius: '50%',
         top: '-105px',
-        right: '-96px'
-    }
+        right: '-96px',
+    },
 }));
 
 // ==============================|| PROGRESS BAR WITH LABEL ||============================== //
 
-function LinearProgressWithLabel({ value, ...others }) {
+function LinearProgressWithLabel({value, ...others}) {
     const theme = useTheme();
 
     return (
-        <Grid container direction="column" spacing={1} sx={{ mt: 1.5 }}>
+        <Grid container direction="column" spacing={1} sx={{mt: 1.5}}>
             <Grid item>
                 <Grid container justifyContent="space-between">
                     <Grid item>
-                        <Typography variant="h6" sx={{ color: theme.palette.primary[800] }}>
+                        <Typography variant="h6" sx={{color: theme.palette.primary[800]}}>
                             Progress
                         </Typography>
                     </Grid>
@@ -76,7 +76,7 @@ function LinearProgressWithLabel({ value, ...others }) {
 }
 
 LinearProgressWithLabel.propTypes = {
-    value: PropTypes.number
+    value: PropTypes.number,
 };
 
 // ==============================|| SIDEBAR MENU Card ||============================== //
@@ -86,10 +86,10 @@ const MenuCard = () => {
 
     return (
         <CardStyle>
-            <CardContent sx={{ p: 2 }}>
-                <List sx={{ p: 0, m: 0 }}>
-                    <ListItem alignItems="flex-start" disableGutters sx={{ p: 0 }}>
-                        <ListItemAvatar sx={{ mt: 0 }}>
+            <CardContent sx={{p: 2}}>
+                <List sx={{p: 0, m: 0}}>
+                    <ListItem alignItems="flex-start" disableGutters sx={{p: 0}}>
+                        <ListItemAvatar sx={{mt: 0}}>
                             <Avatar
                                 variant="rounded"
                                 sx={{
@@ -99,16 +99,16 @@ const MenuCard = () => {
                                     border: 'none',
                                     borderColor: theme.palette.primary.main,
                                     background: '#fff',
-                                    marginRight: '12px'
+                                    marginRight: '12px',
                                 }}
                             >
                                 <TableChartOutlinedIcon fontSize="inherit" />
                             </Avatar>
                         </ListItemAvatar>
                         <ListItemText
-                            sx={{ mt: 0 }}
+                            sx={{mt: 0}}
                             primary={
-                                <Typography variant="subtitle1" sx={{ color: theme.palette.primary[800] }}>
+                                <Typography variant="subtitle1" sx={{color: theme.palette.primary[800]}}>
                                     Get Extra Space
                                 </Typography>
                             }

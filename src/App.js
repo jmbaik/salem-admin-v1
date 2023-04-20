@@ -1,5 +1,5 @@
-import { CssBaseline, StyledEngineProvider } from '@mui/material';
-import { ThemeProvider } from '@mui/material/styles';
+import {CssBaseline, StyledEngineProvider} from '@mui/material';
+import {ThemeProvider} from '@mui/material/styles';
 
 // routing
 import Routes from 'routes';
@@ -8,9 +8,9 @@ import Routes from 'routes';
 import themes from 'themes';
 
 // project imports
-import { customizationState } from 'atoms/customizationState';
+import {customizationState} from 'atoms/customizationState';
 import NavigationScroll from 'layout/NavigationScroll';
-import { useRecoilValue } from 'recoil';
+import {useRecoilValue} from 'recoil';
 
 // ==============================|| APP ||============================== //
 

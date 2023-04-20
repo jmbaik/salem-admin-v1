@@ -4,7 +4,12 @@
         "browser": true,
         "es2021": true
     },
-    "extends": ["prettier", "plugin:react/jsx-runtime", "plugin:jsx-a11y/recommended", "plugin:react-hooks/recommended"],
+    "extends": [
+        "prettier",
+        "plugin:react/jsx-runtime",
+        "plugin:jsx-a11y/recommended",
+        "plugin:react-hooks/recommended"
+    ],
     "settings": {
         "import/resolver": {
             "node": {
@@ -43,8 +48,8 @@
         "prettier/prettier": [
             2,
             {
-                "bracketSpacing": true,
-                "printWidth": 140,
+                "bracketSpacing": false,
+                "printWidth": 120,
                 "singleQuote": true,
                 "trailingComma": "all",
                 "tabWidth": 4,
