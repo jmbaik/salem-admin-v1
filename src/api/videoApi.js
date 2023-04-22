@@ -19,3 +19,8 @@ export const videoUploadApi = async (data) => {
     const result = await axios.post('/video/default', data, config);
     return result;
 };
+
+export const videoSeqApi = async () => {
+    const result = await apiFetch.get('/video/seq-video');
+    return result.data.result;
+};
