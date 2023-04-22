@@ -1,11 +1,13 @@
-import {Box, Button, ButtonGroup, Grid, Modal, TextField} from '@mui/material';
-import {videoApi} from 'api/videoApi';
+import {Box, Button, ButtonGroup, Grid, Modal, TextField, Typography} from '@mui/material';
+import {useQuery} from '@tanstack/react-query';
+import {videoApi, videoSeqApi} from 'api/videoApi';
 import {gridSpacing} from 'atoms/constants';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {useForm} from 'react-hook-form';
 import MainCard from 'ui-component/cards/MainCard';
 import {MDataGrid} from 'ui-component/datagrid/MDataGrid';
-import FileUpload from 'views/utilities/FileUpload';
+import apiFetch from 'utils/axios';
+import AwsFileUpload from 'views/utilities/AwsFileUpload';
 
 const Worship = () => {
     const [cat, setCat] = useState('');
@@ -112,6 +114,16 @@ const Worship = () => {
     const updateImage = (images) => {
         console.log(images);
     };
+    /*** 추가 일 경우  */
+    const [seq, setSeq] = useState(0);
+    useEffect(
+        () => async () => {
+            const response = await apiFetch.get('/video/seq-video');
+            setSeq(response.data.result);
+        },
+        [],
+    );
+
     return (
         <Grid container spacing={gridSpacing}>
             <Grid item xs={1} />
@@ -198,6 +210,8 @@ const Worship = () => {
                             label="제목"
                             {...register('title', {required: true})}
                         />
+                        <Typography>썸네일 추가</Typography>
+                        <AwsFileUpload dir={'video'} fileName={`C${seq}`} />
                         <TextField
                             type={'text'}
                             id="refer"
@@ -215,7 +229,6 @@ const Worship = () => {
                             label="설교자"
                             {...register('speaker')}
                         />
-                        <FileUpload refreshFunction={updateImage} />
                         <Grid container spacing={3} justifyContent={'flex-end'} marginTop={1}>
                             <Grid item xs={8}></Grid>
                             <Grid item xs={2}>

@@ -5,17 +5,19 @@ import AWS from 'aws-sdk';
 import {useState} from 'react';
 import {IoMdCloudUpload} from 'react-icons/io';
 
-const WorshipGuide = () => {
+const AwsFileUpload = (props) => {
+    const {dir, fileName} = props;
+    props.doneState(false);
     const [progress, setProgress] = useState(0);
     const [selectedFile, setSelectedFile] = useState(null);
     const [showAlert, setShowAlert] = useState(false);
     const [ext, setExt] = useState('');
     const [done, setDone] = useState('');
+    const [imgUrl, setImgUrl] = useState('');
     const ACCESS_KEY = process.env.REACT_APP_ACCESS_KEY;
     const SECRET_ACCESS_KEY = process.env.REACT_APP_SECRET_ACCESS_KEY;
     const REGION = process.env.REACT_APP_REGION;
     const S3_BUCKET = process.env.REACT_APP_S3_BUCKET;
-    console.log(ACCESS_KEY, SECRET_ACCESS_KEY, REGION, S3_BUCKET);
 
     AWS.config.update({
         accessKeyId: ACCESS_KEY,
@@ -27,10 +29,11 @@ const WorshipGuide = () => {
     });
     const handleFileInput = (e) => {
         const file = e.target.files[0];
-        // console.log(file);
-        const fileExt = file.name.split('.').pop();
-        setExt(fileExt);
+        console.log('filename', file.name);
+        const fileExt = file.name.split('.').pop().toLowerCase();
         console.log(fileExt);
+        setExt(fileExt);
+        console.log(imgUrl);
         // if (file.type !== 'image/jpeg' || fileExt !== 'jpg' || fileExt !== 'png') {
         //     alert('이미지 파일만 업로드 가능합니다.');
         //     return;
@@ -38,6 +41,7 @@ const WorshipGuide = () => {
         setProgress(0);
         setSelectedFile(file);
         setDone('upload');
+        props.doneState(false);
     };
     const uploadFile = (file) => {
         console.log(file.name);
@@ -45,7 +49,7 @@ const WorshipGuide = () => {
             ACL: 'public-read',
             Body: file,
             Bucket: S3_BUCKET,
-            Key: 'upload/' + 'ccc.' + ext,
+            Key: 'upload/' + dir + '/' + fileName + '.' + ext,
         };
         myBucket
             .putObject(params)
@@ -56,12 +60,15 @@ const WorshipGuide = () => {
                     setShowAlert(false);
                     setSelectedFile(null);
                     setDone('done');
+                    props.doneState(true);
+                    setImgUrl(`${process.env.REACT_APP_S3_URL}/upload/${dir}/${fileName}.${ext}`);
                 }, 2000);
             })
             .send((err) => {
                 if (err) console.log(err);
             });
     };
+
     return (
         <div>
             <div className="parent">
@@ -79,13 +86,7 @@ const WorshipGuide = () => {
                     <h3>Click box to upload</h3>
                     <p>Maximun file size 3mb</p>
                     <input type="file" onChange={handleFileInput} />
-                    {ext && (
-                        <img
-                            alt="abc"
-                            style={{width: 100, height: 100}}
-                            src={`${process.env.REACT_APP_S3_URL}/upload/ccc.${ext}`}
-                        />
-                    )}
+                    {imgUrl.length > 0 && <img alt="abc" style={{width: 100, height: 100}} src={imgUrl} />}
                     {selectedFile ? (
                         <div>
                             <Button variant="contained" onClick={() => uploadFile(selectedFile)}>
@@ -99,4 +100,4 @@ const WorshipGuide = () => {
     );
 };
 
-export default WorshipGuide;
+export default AwsFileUpload;

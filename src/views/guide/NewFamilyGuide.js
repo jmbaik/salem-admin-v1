@@ -70,7 +70,11 @@ const NewFamilyGuide = () => {
                 {selectedFile ? <Button onClick={() => uploadFile(selectedFile)}>Upload</Button> : null}
             </Grid>
             <Grid item xs={12}>
-                <img alt="abc" src={`${process.env.REACT_APP_S3_URL}/upload/aaaaaa.png`} />
+                <img
+                    alt="abc"
+                    style={{width: 100, height: 100}}
+                    src={`${process.env.REACT_APP_S3_URL}/upload/ccc.${ext}`}
+                />
             </Grid>
         </Grid>
     );
