@@ -1,6 +1,6 @@
 import {Box, Button, ButtonGroup, Grid, Modal, TextField, Typography} from '@mui/material';
 import {useQuery} from '@tanstack/react-query';
-import {useFetchVideoList, videoApi, videoSeqApi} from 'api/videoApi';
+import {useSaveVideo, useFetchVideoList, videoSeqApi, useDeleteVideo} from 'api/videoApi';
 import {gridSpacing} from 'atoms/constants';
 import {useEffect, useState} from 'react';
 import {useForm} from 'react-hook-form';
@@ -13,6 +13,18 @@ import {toast} from 'react-toastify';
 const Worship = () => {
     const [cat, setCat] = useState('');
     const [isUploadDone, setIsUploadDone] = useState(false);
+    const [ie, setIe] = useState('s');
+    const [vid, setVid] = useState(0);
+    // const [selectedRow, setSelectedRow] = useState({
+    //     churchCode: '',
+    //     cat: '',
+    //     refer: '',
+    //     vid: '',
+    //     title: '',
+    //     speacker: '',
+    //     thumnail: '',
+    // });
+    const [selectedRow, setSelectedRow] = useState({});
     const {
         register,
         handleSubmit,
@@ -25,21 +37,23 @@ const Worship = () => {
     const deleteRow = (param) => {
         // console.log(param);
     };
-    const handleRowClick = (params) => {
-        // console.log(params);
-        // console.log(params.row['code']);
-        // console.log(params.row['name']);
+    const handleRowClick = (row) => {
+        // console.log(row);
+        setSelectedRow(row);
+        console.log(selectedRow);
+        setModalOpen(true);
+        setCat(selectedRow.cat);
     };
     const columns = [
         {
-            field: 'cCode',
-            headerName: 'cCode',
+            field: 'churchCode',
+            headerName: 'churchCode',
             width: 90,
             headerAlign: 'center',
         },
         {field: 'vid', headerName: 'vid', width: 90, headerAlign: 'center'},
         {
-            field: 'cName',
+            field: 'churchName',
             headerName: '교회',
             headerAlign: 'center',
             width: 150,
@@ -103,36 +117,46 @@ const Worship = () => {
         },
     ];
     const hideCols = {
-        cCode: false,
+        churchCode: false,
         vid: false,
     };
     const addForm = () => {
         setModalOpen(true);
     };
+    /** 모달 입력/수졍 */
+    const {saveVideo, saveLoading} = useSaveVideo();
+    const {deleteVideo, deleteLoading} = useDeleteVideo();
+
     const onSubmit = handleSubmit((data) => {
+        console.log('handlesubmitdata', data);
         if (!isUploadDone) {
             console.log(isUploadDone);
             toast.error('파일 업로드가 되지 않았습니다.');
         }
-        console.log(data);
+        const params = {...data, churchCode: 'H1001', vid: vid, thumnail: `video/C${vid}`};
+        console.log(params);
+        if (ie === 'd') {
+            deleteVideo(params);
+        }
+        if (ie !== 'd') {
+            saveVideo(params, {
+                onSuccess: () => {
+                    setModalOpen(false);
+                },
+            });
+        }
     });
 
     const onDoneState = (isDone) => {
-        return setIsUploadDone(isDone);
+        setIsUploadDone(isDone);
     };
-    /* file upload */
-    const updateImage = (images) => {
-        console.log(images);
-    };
+
     /*** 추가 일 경우  */
-    const [seq, setSeq] = useState(0);
-    useEffect(
-        () => async () => {
-            const response = await apiFetch.get('/video/seq-video');
-            setSeq(response.data.result);
-        },
-        [],
-    );
+    useEffect(() => {
+        videoSeqApi().then((response) => {
+            setVid(response.data.result);
+        });
+    }, []);
 
     return (
         <Grid container spacing={gridSpacing}>
@@ -158,7 +182,7 @@ const Worship = () => {
                     cols={columns}
                     isCheck={false}
                     autoHeight={true}
-                    onRowClick={handleRowClick}
+                    onRowClick={(p) => handleRowClick(p)}
                     actionDelete={deleteRow}
                     isDelete={true}
                     hideCols={hideCols}
@@ -182,14 +206,14 @@ const Worship = () => {
                         }}
                         onSubmit={onSubmit}
                     >
+                        <input id="churchCode" type="hidden" value="HC1001" {...register('churchCode')} />
                         <TextField
                             type={'text'}
                             variant="filled"
-                            id="cCode"
+                            id="churchCode"
                             label="교회 코드"
+                            defaultValue={'HC1001'}
                             disabled
-                            defaultValue={'H1001'}
-                            {...register('cCode')}
                         />
                         <TextField
                             select
@@ -221,7 +245,7 @@ const Worship = () => {
                             {...register('title', {required: true})}
                         />
                         <Typography>썸네일 추가</Typography>
-                        <AwsFileUpload dir={'video'} fileName={`C${seq}`} onDoneState={onDoneState} />
+                        <AwsFileUpload dir={'video'} fileName={`C${vid}`} onDoneState={onDoneState} />
                         <TextField
                             type={'text'}
                             id="refer"
@@ -242,7 +266,7 @@ const Worship = () => {
                         <Grid container spacing={3} justifyContent={'flex-end'} marginTop={1}>
                             <Grid item xs={8}></Grid>
                             <Grid item xs={2}>
-                                <Button variant="contained" onClick={onSubmit}>
+                                <Button variant="contained" onClick={onSubmit} disabled={saveLoading || deleteLoading}>
                                     Submit
                                 </Button>
                             </Grid>

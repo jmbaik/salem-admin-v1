@@ -99,7 +99,7 @@ export function MDataGrid({
                     slots={{
                         pagination: CustomPagination,
                     }}
-                    onRowClick={onRowClick}
+                    onRowClick={(p) => onRowClick(p.row)}
                 />
             )}
             {isError && <Typography>{error}</Typography>}

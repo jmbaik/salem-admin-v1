@@ -17,7 +17,6 @@ function useAwsUpload({files, dir, keyCode}) {
     });
 
     const uploadFiles = (files) => {
-        console.log(files);
         files.map((file, index) => {
             const data = upload(file, index);
             fileNames.push(data);

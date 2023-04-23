@@ -60,7 +60,7 @@ const AwsFileUpload = (props) => {
                     setSelectedFile(null);
                     setDone('done');
                     props.onDoneState(true);
-                    setImgUrl(`${process.env.REACT_APP_S3_URL}/upload/${dir}/${fileName}.${ext}`);
+                    setImgUrl(`${dir}/${fileName}.${ext}`);
                 }, 2000);
             })
             .send((err) => {
@@ -86,7 +86,11 @@ const AwsFileUpload = (props) => {
                     <p>Maximun file size 3mb</p>
                     <input type="file" onChange={handleFileInput} />
                     {imgUrl.length > 0 ? (
-                        <img alt="abc" style={{width: 100, height: 100}} src={imgUrl} />
+                        <img
+                            alt="abc"
+                            style={{width: 100, height: 100}}
+                            src={`${process.env.REACT_APP_S3_URL}/upload/${imgUrl}`}
+                        />
                     ) : (
                         <div style={{height: 100}} />
                     )}
