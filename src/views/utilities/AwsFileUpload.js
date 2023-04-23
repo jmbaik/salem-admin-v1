@@ -7,7 +7,6 @@ import {IoMdCloudUpload} from 'react-icons/io';
 
 const AwsFileUpload = (props) => {
     const {dir, fileName} = props;
-    props.doneState(false);
     const [progress, setProgress] = useState(0);
     const [selectedFile, setSelectedFile] = useState(null);
     const [showAlert, setShowAlert] = useState(false);
@@ -29,8 +28,8 @@ const AwsFileUpload = (props) => {
     });
     const handleFileInput = (e) => {
         const file = e.target.files[0];
-        console.log('filename', file.name);
-        const fileExt = file.name.split('.').pop().toLowerCase();
+        console.log('filename', file?.name);
+        const fileExt = file?.name.split('.').pop().toLowerCase();
         console.log(fileExt);
         setExt(fileExt);
         console.log(imgUrl);
@@ -41,7 +40,7 @@ const AwsFileUpload = (props) => {
         setProgress(0);
         setSelectedFile(file);
         setDone('upload');
-        props.doneState(false);
+        props.onDoneState(false);
     };
     const uploadFile = (file) => {
         console.log(file.name);
@@ -60,7 +59,7 @@ const AwsFileUpload = (props) => {
                     setShowAlert(false);
                     setSelectedFile(null);
                     setDone('done');
-                    props.doneState(true);
+                    props.onDoneState(true);
                     setImgUrl(`${process.env.REACT_APP_S3_URL}/upload/${dir}/${fileName}.${ext}`);
                 }, 2000);
             })
@@ -80,13 +79,17 @@ const AwsFileUpload = (props) => {
                     ) : done === 'upload' ? (
                         <Alert>업로드를 하여 주십시요</Alert>
                     ) : (
-                        <Alert>클릭해서 파일 첨부를 하여 주십시요</Alert>
+                        <Alert>클릭해서 파일 첨부를 하시고 반드시 업로드를 하여 주십시요</Alert>
                     )}
                     <IoMdCloudUpload style={{width: 30, height: 30}} />
                     <h3>Click box to upload</h3>
                     <p>Maximun file size 3mb</p>
                     <input type="file" onChange={handleFileInput} />
-                    {imgUrl.length > 0 && <img alt="abc" style={{width: 100, height: 100}} src={imgUrl} />}
+                    {imgUrl.length > 0 ? (
+                        <img alt="abc" style={{width: 100, height: 100}} src={imgUrl} />
+                    ) : (
+                        <div style={{height: 100}} />
+                    )}
                     {selectedFile ? (
                         <div>
                             <Button variant="contained" onClick={() => uploadFile(selectedFile)}>

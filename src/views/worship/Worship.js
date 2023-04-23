@@ -1,6 +1,6 @@
 import {Box, Button, ButtonGroup, Grid, Modal, TextField, Typography} from '@mui/material';
 import {useQuery} from '@tanstack/react-query';
-import {videoApi, videoSeqApi} from 'api/videoApi';
+import {useFetchVideoList, videoApi, videoSeqApi} from 'api/videoApi';
 import {gridSpacing} from 'atoms/constants';
 import {useEffect, useState} from 'react';
 import {useForm} from 'react-hook-form';
@@ -8,9 +8,11 @@ import MainCard from 'ui-component/cards/MainCard';
 import {MDataGrid} from 'ui-component/datagrid/MDataGrid';
 import apiFetch from 'utils/axios';
 import AwsFileUpload from 'views/utilities/AwsFileUpload';
+import {toast} from 'react-toastify';
 
 const Worship = () => {
     const [cat, setCat] = useState('');
+    const [isUploadDone, setIsUploadDone] = useState(false);
     const {
         register,
         handleSubmit,
@@ -108,8 +110,16 @@ const Worship = () => {
         setModalOpen(true);
     };
     const onSubmit = handleSubmit((data) => {
+        if (!isUploadDone) {
+            console.log(isUploadDone);
+            toast.error('파일 업로드가 되지 않았습니다.');
+        }
         console.log(data);
     });
+
+    const onDoneState = (isDone) => {
+        return setIsUploadDone(isDone);
+    };
     /* file upload */
     const updateImage = (images) => {
         console.log(images);
@@ -142,18 +152,17 @@ const Worship = () => {
                     </ButtonGroup>
                 </Box>
                 <MDataGrid
-                    queryKey={'video-list'}
                     keyCode={'vid'}
                     width={'100%'}
                     height={500}
                     cols={columns}
-                    apiFunction={videoApi}
                     isCheck={false}
                     autoHeight={true}
                     onRowClick={handleRowClick}
                     actionDelete={deleteRow}
                     isDelete={true}
                     hideCols={hideCols}
+                    queryFunction={useFetchVideoList}
                 />
             </Grid>
             <Grid item xs={1} />
@@ -162,8 +171,9 @@ const Worship = () => {
                 onClose={onModalClose}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
+                style={{overflow: 'auto'}}
             >
-                <MainCard title="예배 등록" sx={{...style, width: 800, height: 800, borderRadius: 2}}>
+                <MainCard title="예배 등록" sx={{...style, width: 800, height: 880, borderRadius: 2}}>
                     <form
                         style={{
                             display: 'flex',
@@ -211,7 +221,7 @@ const Worship = () => {
                             {...register('title', {required: true})}
                         />
                         <Typography>썸네일 추가</Typography>
-                        <AwsFileUpload dir={'video'} fileName={`C${seq}`} />
+                        <AwsFileUpload dir={'video'} fileName={`C${seq}`} onDoneState={onDoneState} />
                         <TextField
                             type={'text'}
                             id="refer"

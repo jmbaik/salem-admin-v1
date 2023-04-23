@@ -12,23 +12,23 @@ import {useQuery} from '@tanstack/react-query';
 import {useCallback, useMemo, useState} from 'react';
 
 export function MDataGrid({
-    queryKey,
     keyCode,
     width,
     height,
     cols,
-    apiFunction,
     isCheck,
     autoHeight,
     onRowClick,
     actionDelete,
     isDelete,
     hideCols,
+    queryFunction,
 }) {
-    const {data, isLoading, isError, error} = useQuery({
-        queryKey: [queryKey],
-        queryFn: apiFunction,
-    });
+    // const {data, isLoading, isError, error} = useQuery({
+    //     queryKey: [queryKey],
+    //     queryFn: apiFunction,
+    // });
+    const {data, isLoading, isError, error} = queryFunction();
     const [paginationModel, setPaginationModel] = useState({
         pageSize: 25,
         page: 0,

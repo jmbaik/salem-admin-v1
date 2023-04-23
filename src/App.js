@@ -11,6 +11,8 @@ import themes from 'themes';
 import {customizationState} from 'atoms/customizationState';
 import NavigationScroll from 'layout/NavigationScroll';
 import {useRecoilValue} from 'recoil';
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // ==============================|| APP ||============================== //
 
@@ -23,6 +25,7 @@ const App = () => {
                 <CssBaseline />
                 <NavigationScroll>
                     <Routes />
+                    <ToastContainer position="top-center" />
                 </NavigationScroll>
             </ThemeProvider>
         </StyledEngineProvider>
