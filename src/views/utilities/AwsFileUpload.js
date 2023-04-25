@@ -6,13 +6,13 @@ import {useState} from 'react';
 import {IoMdCloudUpload} from 'react-icons/io';
 
 const AwsFileUpload = (props) => {
-    const {dir, fileName} = props;
+    const {dir, fileName, fileUrl} = props;
     const [progress, setProgress] = useState(0);
     const [selectedFile, setSelectedFile] = useState(null);
     const [showAlert, setShowAlert] = useState(false);
     const [ext, setExt] = useState('');
     const [done, setDone] = useState('');
-    const [imgUrl, setImgUrl] = useState('');
+    const [imgUrl, setImgUrl] = useState(fileUrl || '');
     const ACCESS_KEY = process.env.REACT_APP_ACCESS_KEY;
     const SECRET_ACCESS_KEY = process.env.REACT_APP_SECRET_ACCESS_KEY;
     const REGION = process.env.REACT_APP_REGION;
@@ -61,6 +61,8 @@ const AwsFileUpload = (props) => {
                     setDone('done');
                     props.onDoneState(true);
                     setImgUrl(`${dir}/${fileName}.${ext}`);
+                    console.log('upload imgurl = ' + `${dir}/${fileName}.${ext}`);
+                    props.getImgUrl(`${dir}/${fileName}.${ext}`);
                 }, 2000);
             })
             .send((err) => {

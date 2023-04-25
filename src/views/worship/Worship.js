@@ -14,6 +14,8 @@ const Worship = () => {
     const [cat, setCat] = useState('');
     const [isUploadDone, setIsUploadDone] = useState(false);
     const [ie, setIe] = useState('s');
+    const [imgUrl, setImgUrl] = useState('');
+
     const [vid, setVid] = useState(0);
     // const [selectedRow, setSelectedRow] = useState({
     //     churchCode: '',
@@ -28,11 +30,16 @@ const Worship = () => {
     const {
         register,
         handleSubmit,
+        setValue,
+        getValues,
         formState: {errors},
     } = useForm();
     const [modalOpen, setModalOpen] = useState(false);
     const onModalClose = () => {
         setModalOpen(false);
+        const fields = ['cat', 'title', 'refer', 'speaker', 'thumnail'];
+        fields.forEach((field) => setValue(field, ''));
+        setImgUrl('');
     };
     const deleteRow = (param) => {
         // console.log(param);
@@ -43,6 +50,8 @@ const Worship = () => {
         console.log(selectedRow);
         setModalOpen(true);
         setCat(selectedRow.cat);
+        const fields = ['cat', 'title', 'refer', 'speaker', 'thumnail'];
+        fields.forEach((field) => setValue(field, row[field]));
     };
     const columns = [
         {
@@ -133,7 +142,8 @@ const Worship = () => {
             console.log(isUploadDone);
             toast.error('파일 업로드가 되지 않았습니다.');
         }
-        const params = {...data, churchCode: 'H1001', vid: vid, thumnail: `video/C${vid}`};
+        console.log('imgUrl', imgUrl);
+        const params = {...data, churchCode: 'H1001', vid: vid, thumnail: imgUrl};
         console.log(params);
         if (ie === 'd') {
             deleteVideo(params);
@@ -149,6 +159,11 @@ const Worship = () => {
 
     const onDoneState = (isDone) => {
         setIsUploadDone(isDone);
+    };
+    const onGetImgUrl = (_imgUrl) => {
+        console.log('imgurl is ---- ' + _imgUrl);
+        setImgUrl(_imgUrl);
+        console.log(_imgUrl);
     };
 
     /*** 추가 일 경우  */
@@ -245,7 +260,13 @@ const Worship = () => {
                             {...register('title', {required: true})}
                         />
                         <Typography>썸네일 추가</Typography>
-                        <AwsFileUpload dir={'video'} fileName={`C${vid}`} onDoneState={onDoneState} />
+                        <AwsFileUpload
+                            dir={'video'}
+                            fileName={`C${vid}`}
+                            onDoneState={onDoneState}
+                            fileUrl={getValues('thumnail')}
+                            getImgUrl={onGetImgUrl}
+                        />
                         <TextField
                             type={'text'}
                             id="refer"
